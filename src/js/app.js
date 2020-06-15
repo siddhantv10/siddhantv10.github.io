@@ -6,20 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
   particlesJS('particles-js', {
     "particles": {
       "number": {
-        "value": 30,
+        "value": 70,
         "density": {
           "enable": true,
           "value_area": 800
         }
       },
       "color": {
-        "value": "#ffffff"
+        "value": "#000000"
       },
       "shape": {
         "type": "polygon",
         "stroke": {
           "width": 0,
-          "color": "#000000"
+          "color": "#ffffff"
         },
         "polygon": {
           "nb_sides": 5
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       "size": {
-        "value": 3,
+        "value": 4,
         "random": true,
         "anim": {
           "enable": false,
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "enable": true,
         "distance": 150,
         "color": "#ffffff",
-        "opacity": 0.4,
+        "opacity": 0.5,
         "width": 1
       },
       "move": {
@@ -115,4 +115,51 @@ document.addEventListener("DOMContentLoaded", function () {
     "retina_detect": true
   });
 
+  var dataText = ["hardware", "code", "debate", "learn"];
+
+  function typeWriter(text, i, fnCallback) {
+    if (i < (text.length)) {
+      document.querySelector(".desc").innerHTML = text.substring(0, i + 1) + '<span></span>';
+
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback);
+      }, 90);
+    } else if (typeof fnCallback == 'function') {
+      setTimeout(fnCallback, 700);
+    }
+  }
+
+  function typeWriterDel(text, i, fnCallback) {
+    if (i > 0) {
+      document.querySelector(".desc").innerHTML = text.substring(0, i - 1) + '<span></span>';
+
+      setTimeout(function() {
+        typeWriterDel(text, i - 1, fnCallback);
+      }, 90);
+    } else if (typeof fnCallback == 'function') {
+      setTimeout(fnCallback, 700);
+    }
+  }
+
+  function StartTextAnimation(i) {
+    if (typeof dataText[i] == 'undefined') {
+      setTimeout(function() {
+        StartTextAnimation(0);
+      }, 0);
+    }
+    if (i < dataText[i].length) {
+      typeWriter(dataText[i], 0, function() {
+        typeWriterDel(dataText[i], dataText[i].length, function() {
+          StartTextAnimation(i + 1);
+        });
+      });
+    }
+  }
+  
+  StartTextAnimation(0);
+
 }, false);
+
+
+ 
+
