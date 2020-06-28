@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "retina_detect": true
   });
 
-  var dataText = ["hardware", "code", "debate", "learn"];
+  var dataText = ["learn", "think", "code", "innovate"];
 
   function typeWriter(text, i, fnCallback) {
     if (i < (text.length)) {
