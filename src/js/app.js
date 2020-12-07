@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "value": 70,
         "density": {
           "enable": true,
-          "value_area": 800
+          "value_area": 900
         }
       },
       "color": {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "type": "polygon",
         "stroke": {
           "width": 0,
-          "color": "#ffffff"
+          "color": "#fffff0"
         },
         "polygon": {
           "nb_sides": 5
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "retina_detect": true
   });
 
-  var dataText = ["learn", "think", "code", "innovate"];
+  var dataText = ["researcher.", "programmer.", "innovator."];
 
   function typeWriter(text, i, fnCallback) {
     if (i < (text.length)) {
